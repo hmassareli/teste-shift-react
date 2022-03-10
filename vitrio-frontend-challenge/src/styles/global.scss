@@ -1,0 +1,228 @@
+//Usar a fonte cabin do google!!!
+body{
+    font-family:Cabin, sans-serif;
+    padding: 0px;
+    margin:0px;
+    height: 100vh;
+}
+#produtos{
+    display:flex;
+    flex-wrap: wrap;
+    div{
+        margin-top:20px;
+        margin-bottom:20px;
+        text-align: center;
+        flex-basis:20%;
+        
+        img{
+            height:210px;
+            opacity: 0.9;
+            transition: all .5s;
+            overflow: hidden;
+        }
+        &:hover img{
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        @media (max-width:576px) {
+            flex-basis:50%;
+
+            .botaoComprar{
+                visibility: visible;
+                opacity:1;
+            }
+        }
+        @media (max-width:480px){
+            flex-basis:100%;
+        }
+        .botaoComprar{
+            display: inline-block;
+            opacity: 0.1;
+            padding:10px;
+            width:80%;
+            border:1px solid black;
+            cursor:pointer;
+            visibility: hidden;
+            color:black;
+            text-decoration: none;
+            transition: .4s;
+            transition-property: all;
+            transition-duration: 0.3s;
+            transition-timing-function:ease-in-out;
+            transition-delay: 0s;
+            &:hover{
+                background-color: black;
+                color:white !important;
+            }
+        }
+        &:hover .botaoComprar{
+            color:black;
+            text-decoration: none;
+            visibility: visible;
+            opacity: 1;
+        }
+        
+    }
+    p{
+        margin-bottom:5px;
+        margin-top:5px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .preco{
+        
+        
+        color:rgb(173,128,118);
+    }
+    .nomeProduto{
+        margin:auto;
+        margin-top:15px;
+        margin-bottom:15px;
+        
+        text-transform:uppercase;
+        width:36ch;
+        font-size: 10px;
+        font-weight: 500;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+    
+        @media (max-width:576px) {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space:normal;
+            width:34ch;
+            
+        }
+        
+    }
+
+}
+#root > div{
+    padding-bottom: 40px;
+}
+footer{
+    background-color: rgb(249,249,249);
+    padding:50px;
+    
+    p{
+        text-align: center;
+        margin: 1px;
+    }
+    .h2News{
+        
+        text-align:center;
+        font-weight: 400;
+    }
+    form{
+
+        
+            
+            *{
+                @media (max-width:560px){
+                width:80% !important;
+                margin-top: 15px;
+                }
+            }
+        
+        *{
+            font-family: Cabin, sans-serif;
+        }
+        
+        margin:auto;
+        margin-top: 25px;
+        text-align: center;
+        input{
+            width:200px;
+            background-color: transparent;
+            padding: 15px 10px;
+            border: 0px;
+            border-bottom: 1px solid black;
+            &[type=email]{
+                margin-left:10px;
+                
+            }
+            &:focus{
+                box-shadow: 0 0 0 0;
+                outline: 0;
+            }
+        }
+        button{
+            background-color: transparent;
+            padding: 13px 45px;
+            margin-left: 20px;
+            cursor:pointer;
+            border: 1px solid black;
+            transition: .4s;
+            transition-property: all;
+            transition-duration: 0.3s;
+            transition-timing-function:ease-in-out;
+            transition-delay: 0s;
+
+            &:hover{
+                background-color: black;
+                color:white
+            }
+        }
+    }
+}
+//Animação Preloader
+#preloader {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:white; /* cor do background que vai ocupar o body */
+    z-index:999; /* z-index para jogar para frente e sobrepor tudo */
+}
+#preloader .inner {
+    position: absolute;
+    top: 50%; /* centralizar a parte interna do preload (onde fica a animação)*/
+    left: 50%;
+    transform: translate(-50%, -50%);  
+}
+.bolas > div {
+  display: inline-block;
+  background-color: rgb(168, 113, 100);
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  margin: 3px;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  animation-name: animarBola;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+   
+}
+.bolas > div:nth-child(1) {
+    animation-duration:0.5s ;
+    animation-delay: 0;
+}
+.bolas > div:nth-child(2) {
+    animation-duration: 0.5s ;
+    animation-delay: 0.12s;
+}
+.bolas > div:nth-child(3) {
+    animation-duration: 0.5s  ;
+    animation-delay: 0.24s;
+}
+ 
+@keyframes animarBola {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  16% {
+    -webkit-transform: scale(0.1);
+    transform: scale(0.1);
+    opacity: 0.7;
+  }
+  33% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1; 
+  } 
+}
